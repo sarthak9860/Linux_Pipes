@@ -41,10 +41,14 @@ void simple_pipe(const char* cmd1, char* const* argv1, const char* cmd2, char* c
 	waitpid(child2, &status, 0);
 }
 
-int main() {
-	char *argv1[] = {"echo", "hello world", NULL};
-	char *argv2[] = {"wc", "-c", NULL};
-	simple_pipe("echo", argv1, "wc", argv2);
+int main(int argc, char* argv[]) {
+	if(argc==1 || argc>5){
+		printf("Usage: ./<executable> <cmd1> <arg2> <cmd2> <arg2>\n");
+		return -1;
+	}
+	char *list1[] = {" ", argv[2], NULL};
+	char *list2[] = {" ", argv[4], NULL};
+	simple_pipe(argv[1], list1, argv[3], list2);
 	return 0;
 }
 
