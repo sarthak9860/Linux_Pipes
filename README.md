@@ -239,6 +239,7 @@ Give a two-process Unix pipeline that Shell X3 will not appear to run correctly,
 
 Named Pipe
 While an unnamed Linux pipe is valid for one process only, a named Linux pipe will ensure that the command is valid the entire time until you shut down the system or delete it. 
+
 mkfifo <named-pipe>     OR
 mknod p <named-pipe>
 $ mkfifo named-pipe
